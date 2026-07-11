@@ -4,23 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Dr Thomas Hendriks, MBBS MPhil FRACS. ENT Surgeon and Head and Neck Surgeon in Perth, Western Australia. Accepting GP and specialist referrals.">
-  <meta name="theme-color" content="#0E5C66">
+  <meta name="theme-color" content="#9A5B3C">
   <title>Dr Thomas Hendriks | ENT &amp; Head and Neck Surgeon, Perth</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ground: #F3F5F7;
+      --ground: #F5F4F2;
       --surface: #FFFFFF;
-      --ink: #0B1520;
-      --muted: #5A6570;
-      --accent: #0E5C66;
-      --accent-hover: #0A4A52;
-      --rule: #D5DCE3;
-      --radius: 7px;
-      --nav-h: 68px;
-      --max: 1120px;
+      --ink: #14161A;
+      --muted: #5C636B;
+      --accent: #9A5B3C;
+      --accent-hover: #7E4A31;
+      --deep: #1A1D22;
+      --rule: #E2E0DC;
+      --radius: 4px;
+      --nav-h: 72px;
+      --max: 1140px;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
@@ -32,7 +33,7 @@
     }
 
     body {
-      font-family: "Figtree", sans-serif;
+      font-family: "Public Sans", sans-serif;
       font-size: 17px;
       line-height: 1.65;
       color: var(--ink);
@@ -73,7 +74,7 @@
     }
 
     .wrap {
-      width: min(100% - 2.5rem, var(--max));
+      width: min(100% - 2.75rem, var(--max));
       margin-inline: auto;
     }
 
@@ -90,7 +91,7 @@
 
     .site-nav.is-scrolled {
       border-bottom-color: var(--rule);
-      box-shadow: 0 1px 0 rgba(11, 21, 32, 0.04);
+      box-shadow: 0 1px 0 rgba(20, 22, 26, 0.04);
     }
 
     .nav-inner {
@@ -109,18 +110,18 @@
     }
 
     .nav-brand-name {
-      font-family: "Fraunces", serif;
+      font-family: "Syne", sans-serif;
       font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       line-height: 1.2;
       color: var(--ink);
     }
 
     .nav-brand-creds {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--muted);
-      letter-spacing: 0.01em;
+      letter-spacing: 0.02em;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -129,11 +130,11 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 0.15rem 1.35rem;
+      gap: 0.15rem 1.4rem;
     }
 
     .nav-links a {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       color: var(--muted);
       transition: color 0.2s;
@@ -145,24 +146,74 @@
       color: var(--ink);
     }
 
-    .nav-links a.btn,
-    .nav-links a.nav-cta {
+    .nav-links a.btn {
       color: #fff;
       font-size: 0.85rem;
       font-weight: 600;
       line-height: 1.25;
-      padding: 0.7rem 1.25rem;
-      min-height: 42px;
+      padding: 0.75rem 1.3rem;
+      min-height: 44px;
       white-space: nowrap;
       flex-shrink: 0;
       box-sizing: border-box;
-      margin-left: 0.25rem;
+      margin-left: 0.35rem;
+      background: var(--accent);
+      border-radius: var(--radius);
     }
 
-    .nav-links a.btn:hover,
-    .nav-links a.nav-cta:hover {
+    .nav-links a.btn:hover {
       color: #fff;
       background: var(--accent-hover);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      border-radius: var(--radius);
+    }
+
+    .nav-toggle svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      inset: var(--nav-h) 0 auto 0;
+      z-index: 99;
+      background: var(--surface);
+      border-bottom: 1px solid var(--rule);
+      padding: 1rem 1.35rem 1.5rem;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .nav-drawer.is-open {
+      display: flex;
+    }
+
+    .nav-drawer a {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+      padding: 0.85rem 0.25rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-drawer a.btn {
+      margin-top: 0.75rem;
+      border-bottom: none;
+      justify-content: center;
+      color: #fff;
+    }
+
+    body.menu-open {
+      overflow: hidden;
     }
 
     .btn {
@@ -174,9 +225,9 @@
       font-size: 0.9rem;
       line-height: 1.25;
       border-radius: var(--radius);
-      padding: 0.85rem 1.35rem;
-      min-height: 44px;
-      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s var(--ease);
+      padding: 0.9rem 1.4rem;
+      min-height: 48px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
 
     .btn-primary {
@@ -190,167 +241,113 @@
 
     .btn-ghost {
       background: transparent;
-      color: var(--ink);
-      border: 1px solid var(--rule);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.45);
     }
 
     .btn-ghost:hover {
-      border-color: var(--ink);
+      border-color: #fff;
+      background: rgba(255, 255, 255, 0.08);
     }
-
-    .nav-toggle {
-      display: none;
-      width: 44px;
-      height: 44px;
-      align-items: center;
-      justify-content: center;
-      color: var(--ink);
-      border-radius: var(--radius);
-    }
-
-    .nav-toggle svg { width: 22px; height: 22px; }
-
-    .nav-drawer {
-      display: none;
-      position: fixed;
-      inset: var(--nav-h) 0 0 0;
-      background: var(--surface);
-      z-index: 99;
-      padding: 1.5rem 1.25rem 2rem;
-      flex-direction: column;
-      gap: 0.25rem;
-      overflow-y: auto;
-    }
-
-    .nav-drawer.is-open { display: flex; }
-
-    .nav-drawer a {
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--ink);
-      padding: 0.85rem 0.5rem;
-      border-bottom: 1px solid var(--rule);
-      min-height: 48px;
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-drawer .btn {
-      margin-top: 1.25rem;
-      width: 100%;
-    }
-
-    body.menu-open { overflow: hidden; }
 
     /* ── Hero ── */
     .hero {
       position: relative;
       min-height: calc(100vh - var(--nav-h));
-      min-height: calc(100dvh - var(--nav-h));
-      display: grid;
-      grid-template-columns: 1fr 1.05fr;
-      background: var(--ink);
+      min-height: calc(100svh - var(--nav-h));
+      display: flex;
+      align-items: flex-end;
+      background-color: var(--deep);
+      background-image: url("assets/hero-portrait.png");
+      background-size: cover;
+      background-position: center 20%;
+      background-repeat: no-repeat;
       overflow: hidden;
     }
 
-    .hero-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 4vw, 4rem) clamp(2.5rem, 6vw, 4.5rem);
-      color: #fff;
-      position: relative;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(105deg, rgba(20, 22, 26, 0.88) 0%, rgba(20, 22, 26, 0.55) 42%, rgba(20, 22, 26, 0.18) 68%, transparent 100%),
+        linear-gradient(to top, rgba(20, 22, 26, 0.82) 0%, rgba(20, 22, 26, 0.35) 38%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
       z-index: 2;
-      background: var(--ink);
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.45;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      width: min(100% - 2.75rem, var(--max));
+      margin-inline: auto;
+      padding: 4.5rem 0 5rem;
+      max-width: 38rem;
+      margin-left: max(calc((100% - var(--max)) / 2), 1.375rem);
     }
 
     .hero-name {
-      font-family: "Fraunces", serif;
-      font-optical-sizing: auto;
-      font-size: clamp(2.75rem, 6.5vw, 4.75rem);
-      font-weight: 600;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.85rem;
-      max-width: 12ch;
+      font-family: "Syne", sans-serif;
+      font-size: clamp(2.75rem, 7vw, 4.75rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      color: #fff;
+      margin-bottom: 1.15rem;
     }
 
     .hero-support {
-      font-size: clamp(1rem, 1.6vw, 1.15rem);
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.78);
-      line-height: 1.55;
-      max-width: 28ch;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.5;
+      max-width: 28rem;
       margin-bottom: 2rem;
     }
 
     .hero-support .creds {
       display: block;
-      color: rgba(255, 255, 255, 0.55);
+      margin-top: 0.45rem;
       font-size: 0.9rem;
-      margin-top: 0.35rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 0.75rem 1.5rem;
-    }
-
-    .hero-actions .btn-primary:hover {
-      background: var(--accent-hover);
-    }
-
-    .hero-text-link {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.72);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-      padding-bottom: 0.15rem;
-      transition: color 0.2s, border-color 0.2s;
-      min-height: 44px;
-      display: inline-flex;
+      gap: 0.85rem 1rem;
       align-items: center;
     }
 
-    .hero-text-link:hover {
-      color: #fff;
-      border-bottom-color: #fff;
-    }
-
-    .hero-media {
-      position: relative;
-      min-height: 100%;
-    }
-
-    .hero-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      position: absolute;
-      inset: 0;
-    }
-
-    /* ── Sections shared ── */
+    /* ── Sections ── */
     section {
-      padding: clamp(3.5rem, 8vw, 6rem) 0;
+      padding: 5.5rem 0;
     }
 
     .section-head {
-      margin-bottom: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 2.75rem;
       max-width: 38rem;
     }
 
     .section-head h2 {
-      font-family: "Fraunces", serif;
-      font-size: clamp(1.85rem, 3.5vw, 2.55rem);
-      font-weight: 600;
-      letter-spacing: -0.025em;
+      font-family: "Syne", sans-serif;
+      font-size: clamp(1.85rem, 3.5vw, 2.45rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
       line-height: 1.15;
       color: var(--ink);
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.85rem;
     }
 
     .section-head p {
@@ -377,111 +374,106 @@
 
     .about-layout {
       display: grid;
-      grid-template-columns: 1.4fr 0.9fr;
-      gap: clamp(2.5rem, 5vw, 4.5rem);
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 3.5rem 4rem;
       align-items: start;
     }
 
     .about-prose p {
-      color: var(--muted);
-      margin-bottom: 1.15rem;
-      font-size: 1.02rem;
+      margin-bottom: 1.25rem;
+      color: var(--ink);
     }
 
-    .about-prose p:last-of-type { margin-bottom: 0; }
+    .about-prose p:last-of-type {
+      margin-bottom: 0;
+    }
 
     .pull-quote {
-      margin: 2.25rem 0 0;
+      margin-top: 2.5rem;
+      padding: 1.75rem 0 0;
+      border-top: 2px solid var(--accent);
+    }
+
+    .pull-quote blockquote {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .pull-quote cite {
+      font-style: normal;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .milestones-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem 1.25rem;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .milestone {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .milestone-year {
+      font-family: "Syne", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+    }
+
+    .milestone-label {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .about-aside {
       padding: 1.75rem 0 0;
       border-top: 1px solid var(--rule);
     }
 
-    .pull-quote blockquote {
-      font-family: "Fraunces", serif;
-      font-size: clamp(1.35rem, 2.4vw, 1.75rem);
-      font-weight: 500;
-      line-height: 1.35;
-      letter-spacing: -0.02em;
+    .about-aside h3 {
+      font-family: "Syne", sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       color: var(--ink);
-      max-width: 22ch;
-    }
-
-    .pull-quote cite {
-      display: block;
-      margin-top: 0.85rem;
-      font-style: normal;
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-family: "Figtree", sans-serif;
-    }
-
-    .about-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-      padding-top: 0.25rem;
-    }
-
-    .meta-block h3 {
-      font-family: "Figtree", sans-serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      letter-spacing: 0.02em;
-    }
-
-    .qual-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
+      margin-bottom: 1.25rem;
     }
 
     .qual-list li {
       display: grid;
-      grid-template-columns: 5.5rem 1fr;
+      grid-template-columns: 4.5rem 1fr;
       gap: 0.75rem;
-      padding-bottom: 0.9rem;
+      padding: 0.85rem 0;
       border-bottom: 1px solid var(--rule);
       font-size: 0.95rem;
-      line-height: 1.4;
     }
 
-    .qual-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .qual-list li:last-child {
+      border-bottom: none;
+    }
 
     .qual-list strong {
-      font-weight: 600;
+      font-family: "Syne", sans-serif;
+      font-weight: 700;
       color: var(--ink);
     }
 
     .qual-list span {
-      color: var(--muted);
-    }
-
-    .milestones {
-      display: flex;
-      flex-direction: column;
-      gap: 1.15rem;
-    }
-
-    .milestone {
-      display: grid;
-      grid-template-columns: 5.5rem 1fr;
-      gap: 0.75rem;
-      align-items: baseline;
-    }
-
-    .milestone-year {
-      font-family: "Fraunces", serif;
-      font-size: 1.55rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      line-height: 1;
-    }
-
-    .milestone-label {
-      font-size: 0.95rem;
       color: var(--muted);
       line-height: 1.4;
     }
@@ -492,44 +484,57 @@
     }
 
     .expertise-index {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
       border-top: 1px solid var(--rule);
     }
 
     .exp-item {
       display: grid;
-      grid-template-columns: 3rem 1fr 1.1fr;
-      gap: 1.25rem 2rem;
-      padding: 1.5rem 0;
+      grid-template-columns: 3rem 1fr;
+      gap: 0.35rem 1.15rem;
+      padding: 1.65rem 1.5rem 1.65rem 0;
       border-bottom: 1px solid var(--rule);
       align-items: start;
     }
 
+    .exp-item:nth-child(odd) {
+      padding-right: 2rem;
+      border-right: 1px solid var(--rule);
+    }
+
+    .exp-item:nth-child(even) {
+      padding-left: 2rem;
+    }
+
     .exp-num {
-      font-family: "Fraunces", serif;
-      font-size: 1.1rem;
-      font-weight: 500;
+      font-family: "Syne", sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
       color: var(--accent);
-      padding-top: 0.15rem;
+      letter-spacing: 0.04em;
+      padding-top: 0.2rem;
     }
 
     .exp-item h3 {
-      font-family: "Fraunces", serif;
-      font-size: 1.2rem;
-      font-weight: 600;
+      font-family: "Syne", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
       letter-spacing: -0.015em;
-      line-height: 1.3;
       color: var(--ink);
+      grid-column: 2;
     }
 
     .exp-item ul {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
+      grid-column: 2;
+      margin-top: 0.45rem;
     }
 
     .exp-item li {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--muted);
+      padding: 0.15rem 0;
       padding-left: 0.9rem;
       position: relative;
     }
@@ -538,11 +543,10 @@
       content: "";
       position: absolute;
       left: 0;
-      top: 0.65em;
-      width: 4px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 1px;
+      top: 0.7em;
+      width: 5px;
+      height: 1px;
+      background: var(--muted);
     }
 
     /* ── Locations ── */
@@ -553,25 +557,18 @@
     .loc-cols {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
+      gap: 2.5rem 3rem;
     }
 
     .loc-col {
-      padding: 0 2rem;
-      border-left: 1px solid var(--rule);
+      padding-top: 1.35rem;
+      border-top: 2px solid var(--accent);
     }
-
-    .loc-col:first-child {
-      padding-left: 0;
-      border-left: none;
-    }
-
-    .loc-col:last-child { padding-right: 0; }
 
     .loc-col h3 {
-      font-family: "Fraunces", serif;
-      font-size: 1.2rem;
-      font-weight: 600;
+      font-family: "Syne", sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
       letter-spacing: -0.015em;
       margin-bottom: 1.1rem;
       color: var(--ink);
@@ -584,119 +581,114 @@
       line-height: 1.45;
     }
 
-    /* ── Referrers + contact form ── */
+    /* ── Referrers ── */
     .referrers {
       background: var(--ground);
     }
 
     .ref-intro {
       display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      gap: clamp(1.75rem, 4vw, 3rem);
-      align-items: start;
-      margin-bottom: clamp(2rem, 4vw, 2.75rem);
-      padding-bottom: clamp(1.75rem, 3vw, 2.25rem);
-      border-bottom: 1px solid var(--rule);
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 2rem 3rem;
+      margin-bottom: 2.5rem;
     }
 
     .ref-intro p {
-      color: var(--muted);
       margin-bottom: 1rem;
-      font-size: 1.02rem;
+      color: var(--ink);
     }
 
-    .ref-intro p:last-child { margin-bottom: 0; }
+    .ref-intro p:last-child {
+      margin-bottom: 0;
+    }
 
     .ref-priority {
-      border-left: 3px solid var(--accent);
-      padding: 0.15rem 0 0.15rem 1.1rem;
+      padding: 1.5rem 1.6rem;
+      background: var(--deep);
+      color: rgba(255, 255, 255, 0.78);
+      border-radius: var(--radius);
     }
 
     .ref-priority strong {
       display: block;
-      font-family: "Fraunces", serif;
+      font-family: "Syne", sans-serif;
       font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 0.35rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.55rem;
       letter-spacing: -0.015em;
     }
 
     .ref-priority p {
       font-size: 0.95rem;
+      line-height: 1.5;
       margin: 0;
+      color: rgba(255, 255, 255, 0.72);
     }
 
     .ref-rooms {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1.25rem 1.5rem;
-      margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
-    }
-
-    .ref-room-item {
-      min-width: 0;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.75rem;
+      padding: 1.75rem 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
     }
 
     .ref-room-item span {
       display: block;
       font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.35rem;
+      color: var(--muted);
+      margin-bottom: 0.45rem;
     }
 
-    .ref-room-item p,
-    .ref-room-item a {
-      font-size: 0.95rem;
+    .ref-room-item p {
+      font-size: 0.98rem;
       color: var(--ink);
       line-height: 1.45;
     }
 
     .ref-room-item .pending {
+      color: var(--muted);
       font-style: italic;
-      color: #8A949E;
     }
 
     .ref-form-panel {
       background: var(--surface);
       border: 1px solid var(--rule);
+      padding: 2.25rem 2.35rem 2.5rem;
       border-radius: var(--radius);
-      padding: clamp(1.5rem, 3vw, 2.25rem);
     }
 
     .ref-form-panel h3 {
-      font-family: "Fraunces", serif;
-      font-size: clamp(1.25rem, 2.5vw, 1.45rem);
-      font-weight: 600;
+      font-family: "Syne", sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
       letter-spacing: -0.02em;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.45rem;
     }
 
     .ref-form-lead {
       color: var(--muted);
       font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .ref-form {
-      display: grid;
-      gap: 1.1rem;
+      margin-bottom: 1.75rem;
     }
 
     .ref-form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.1rem;
+      gap: 1.15rem 1.35rem;
+      margin-bottom: 1.25rem;
     }
 
     .field {
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
-      min-width: 0;
     }
 
     .field-full { grid-column: 1 / -1; }
@@ -762,6 +754,7 @@
       font-size: 0.9rem;
       color: var(--muted);
       line-height: 1.45;
+      margin-bottom: 0.35rem;
     }
 
     .field-check input {
@@ -777,7 +770,7 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 1rem 1.5rem;
-      padding-top: 0.35rem;
+      padding-top: 1.15rem;
     }
 
     .ref-form-actions .btn {
@@ -786,7 +779,7 @@
 
     .ref-form-hint {
       font-size: 0.85rem;
-      color: #8A949E;
+      color: #8A9098;
     }
 
     .ref-form-status {
@@ -795,13 +788,14 @@
       border-radius: var(--radius);
       font-size: 0.95rem;
       line-height: 1.5;
+      margin-bottom: 1.25rem;
     }
 
     .ref-form-status.is-visible { display: block; }
 
     .ref-form-status.is-success {
-      background: rgba(14, 92, 102, 0.08);
-      border: 1px solid rgba(14, 92, 102, 0.25);
+      background: rgba(154, 91, 60, 0.08);
+      border: 1px solid rgba(154, 91, 60, 0.28);
       color: var(--accent-hover);
     }
 
@@ -855,9 +849,9 @@
 
     /* ── Footer ── */
     .site-footer {
-      background: var(--ink);
-      color: rgba(255, 255, 255, 0.72);
-      padding: 3.5rem 0 2rem;
+      background: var(--deep);
+      color: rgba(255, 255, 255, 0.68);
+      padding: 3.75rem 0 2rem;
     }
 
     .footer-grid {
@@ -865,28 +859,31 @@
       grid-template-columns: 1.4fr 1fr 1fr;
       gap: 2.5rem;
       padding-bottom: 2.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .footer-brand-name {
-      font-family: "Fraunces", serif;
-      font-size: 1.35rem;
-      font-weight: 600;
+      font-family: "Syne", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
       color: #fff;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.65rem;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.7rem;
     }
 
     .footer-brand p {
       font-size: 0.9rem;
       line-height: 1.55;
-      max-width: 22ch;
-      margin-bottom: 1.35rem;
+      max-width: 24ch;
+      margin-bottom: 1.4rem;
     }
 
     .footer-col h4 {
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-family: "Syne", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       color: #fff;
       margin-bottom: 1rem;
     }
@@ -895,7 +892,7 @@
       display: block;
       font-size: 0.9rem;
       padding: 0.3rem 0;
-      color: rgba(255, 255, 255, 0.65);
+      color: rgba(255, 255, 255, 0.62);
       transition: color 0.2s;
       min-height: 32px;
     }
@@ -905,7 +902,7 @@
     .footer-bottom {
       padding-top: 1.5rem;
       font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.45);
+      color: rgba(255, 255, 255, 0.4);
     }
 
     /* ── Responsive ── */
@@ -919,10 +916,8 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .about-meta {
-        display: grid;
+      .milestones-row {
         grid-template-columns: 1fr 1fr;
-        gap: 2rem;
       }
 
       .exp-item {
@@ -939,29 +934,32 @@
       .nav-toggle { display: flex; }
 
       .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
+        min-height: 78vh;
+        min-height: 78svh;
+        align-items: flex-end;
+        background-position: center 15%;
       }
 
-      .hero-media {
-        order: -1;
-        min-height: 52vw;
-        max-height: 420px;
-        aspect-ratio: 4 / 5;
-      }
-
-      .hero-media img {
-        position: absolute;
-      }
-
-      .hero-copy {
-        padding: 2.25rem 1.25rem 2.75rem;
-        justify-content: flex-start;
+      .hero-content {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 3.5rem 0 3.75rem;
+        max-width: none;
       }
 
       .hero-name {
-        max-width: none;
-        font-size: clamp(2.4rem, 10vw, 3.25rem);
+        font-size: clamp(2.5rem, 11vw, 3.5rem);
+      }
+
+      .expertise-index {
+        grid-template-columns: 1fr;
+      }
+
+      .exp-item:nth-child(odd),
+      .exp-item:nth-child(even) {
+        padding-left: 0;
+        padding-right: 0;
+        border-right: none;
       }
 
       .loc-cols {
@@ -971,13 +969,12 @@
 
       .loc-col {
         padding: 1.5rem 0;
-        border-left: none;
         border-top: 1px solid var(--rule);
       }
 
       .loc-col:first-child {
-        border-top: none;
-        padding-top: 0;
+        border-top: 2px solid var(--accent);
+        padding-top: 1.35rem;
       }
 
       .footer-grid {
@@ -993,8 +990,9 @@
 
       .nav-brand-creds { display: none; }
 
-      .about-meta {
+      .milestones-row {
         grid-template-columns: 1fr;
+        gap: 1.15rem;
       }
 
       .exp-item {
@@ -1008,13 +1006,16 @@
         margin-top: 0.25rem;
       }
 
-      .qual-list li,
-      .milestone {
-        grid-template-columns: 4.75rem 1fr;
+      .qual-list li {
+        grid-template-columns: 4.25rem 1fr;
       }
 
       .ref-rooms {
         grid-template-columns: 1fr;
+      }
+
+      .ref-form-panel {
+        padding: 1.5rem 1.25rem 1.75rem;
       }
 
       .ref-form-grid {
@@ -1049,6 +1050,7 @@
         transition: none;
       }
       .btn { transition: none; }
+      #hero-canvas { display: none; }
     }
   </style>
 </head>
@@ -1068,7 +1070,7 @@
         <a href="#locations">Locations</a>
         <a href="#referrers">For referrers</a>
         <a href="#contact">Contact</a>
-        <a href="#referrers" class="btn btn-primary nav-cta">Make a referral</a>
+        <a href="#referrers" class="btn btn-primary">Make a referral</a>
       </nav>
 
       <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open menu">
@@ -1091,7 +1093,8 @@
   <main id="main">
     <!-- Hero -->
     <section class="hero" id="top" aria-label="Introduction">
-      <div class="hero-copy">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-content">
         <h1 class="hero-name">Dr Thomas Hendriks</h1>
         <p class="hero-support">
           ENT Surgeon &amp; Head and Neck Surgeon, Perth WA
@@ -1099,11 +1102,8 @@
         </p>
         <div class="hero-actions">
           <a href="#referrers" class="btn btn-primary">Refer a patient</a>
-          <a href="#expertise" class="hero-text-link">View expertise</a>
+          <a href="#expertise" class="btn btn-ghost">View expertise</a>
         </div>
-      </div>
-      <div class="hero-media" aria-hidden="true">
-        <img src="assets/hero-portrait.png" alt="" width="900" height="1100">
       </div>
     </section>
 
@@ -1130,38 +1130,34 @@
             </div>
           </div>
 
-          <aside class="about-meta reveal">
-            <div class="meta-block">
-              <h3>Qualifications</h3>
-              <ul class="qual-list">
-                <li><strong>MBBS</strong><span>University of Western Australia, 2015</span></li>
-                <li><strong>MPhil</strong><span>Research in ENT surgery</span></li>
-                <li><strong>FRACS</strong><span>Fellow of the Royal Australasian College of Surgeons</span></li>
-                <li><strong>AHNS</strong><span>Sarah Cannon Head &amp; Neck Fellowship, USA</span></li>
-              </ul>
-            </div>
-            <div class="meta-block">
-              <h3>Career milestones</h3>
-              <div class="milestones">
-                <div class="milestone">
-                  <span class="milestone-year">2015</span>
-                  <span class="milestone-label">Medical degree, UWA</span>
-                </div>
-                <div class="milestone">
-                  <span class="milestone-year">MPhil</span>
-                  <span class="milestone-label">Academic research during surgical training</span>
-                </div>
-                <div class="milestone">
-                  <span class="milestone-year">2025</span>
-                  <span class="milestone-label">ENT &amp; Head and Neck training completed, Perth</span>
-                </div>
-                <div class="milestone">
-                  <span class="milestone-year">Fellow</span>
-                  <span class="milestone-label">Head &amp; neck oncology, South Carolina</span>
-                </div>
-              </div>
-            </div>
+          <aside class="about-aside reveal">
+            <h3>Qualifications</h3>
+            <ul class="qual-list">
+              <li><strong>MBBS</strong><span>University of Western Australia, 2015</span></li>
+              <li><strong>MPhil</strong><span>Research in ENT surgery</span></li>
+              <li><strong>FRACS</strong><span>Fellow of the Royal Australasian College of Surgeons</span></li>
+              <li><strong>AHNS</strong><span>Sarah Cannon Head &amp; Neck Fellowship, USA</span></li>
+            </ul>
           </aside>
+        </div>
+
+        <div class="milestones-row reveal">
+          <div class="milestone">
+            <span class="milestone-year">2015</span>
+            <span class="milestone-label">Medical degree, UWA</span>
+          </div>
+          <div class="milestone">
+            <span class="milestone-year">MPhil</span>
+            <span class="milestone-label">Academic research during surgical training</span>
+          </div>
+          <div class="milestone">
+            <span class="milestone-year">2025</span>
+            <span class="milestone-label">ENT &amp; Head and Neck training completed, Perth</span>
+          </div>
+          <div class="milestone">
+            <span class="milestone-year">Fellow</span>
+            <span class="milestone-label">Head &amp; neck oncology, South Carolina</span>
+          </div>
         </div>
       </div>
     </section>
@@ -1502,6 +1498,63 @@
         }, { rootMargin: "-40% 0px -50% 0px", threshold: 0 });
 
         sections.forEach(function (s) { activeIo.observe(s); });
+      }
+
+      /* Hero canvas: soft airflow sine waves */
+      var canvas = document.getElementById("hero-canvas");
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (canvas && !reduceMotion) {
+        var ctx = canvas.getContext("2d");
+        var raf = 0;
+        var t = 0;
+
+        function resizeCanvas() {
+          var rect = canvas.parentElement.getBoundingClientRect();
+          var dpr = Math.min(window.devicePixelRatio || 1, 2);
+          canvas.width = Math.floor(rect.width * dpr);
+          canvas.height = Math.floor(rect.height * dpr);
+          canvas.style.width = rect.width + "px";
+          canvas.style.height = rect.height + "px";
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        function drawWaves() {
+          var w = canvas.clientWidth;
+          var h = canvas.clientHeight;
+          ctx.clearRect(0, 0, w, h);
+
+          var bands = [
+            { amp: 18, freq: 0.0042, speed: 0.35, y: 0.28, alpha: 0.14 },
+            { amp: 24, freq: 0.0031, speed: 0.22, y: 0.48, alpha: 0.11 },
+            { amp: 14, freq: 0.0055, speed: 0.48, y: 0.62, alpha: 0.09 },
+            { amp: 20, freq: 0.0026, speed: 0.18, y: 0.78, alpha: 0.08 }
+          ];
+
+          bands.forEach(function (band, i) {
+            ctx.beginPath();
+            for (var x = 0; x <= w; x += 4) {
+              var y =
+                h * band.y +
+                Math.sin(x * band.freq + t * band.speed + i * 1.2) * band.amp +
+                Math.sin(x * band.freq * 0.45 + t * band.speed * 0.7) * (band.amp * 0.35);
+              if (x === 0) ctx.moveTo(x, y);
+              else ctx.lineTo(x, y);
+            }
+            ctx.strokeStyle = "rgba(255, 255, 255, " + band.alpha + ")";
+            ctx.lineWidth = 1.25;
+            ctx.stroke();
+          });
+
+          t += 0.016;
+          raf = requestAnimationFrame(drawWaves);
+        }
+
+        resizeCanvas();
+        drawWaves();
+        window.addEventListener("resize", resizeCanvas);
+      } else if (canvas) {
+        canvas.style.display = "none";
       }
 
       /* Referral form */
