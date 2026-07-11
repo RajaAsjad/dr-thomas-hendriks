@@ -17,6 +17,7 @@
       --muted: #5C636B;
       --accent: #9A5B3C;
       --accent-hover: #7E4A31;
+      --accent-soft: #C4896A;
       --deep: #1A1D22;
       --rule: #E2E0DC;
       --radius: 4px;
@@ -807,44 +808,91 @@
 
     /* ── Accreditations ── */
     .accreditations {
-      background: var(--surface);
+      background: var(--deep);
+      color: #fff;
     }
 
-    .acc-row {
+    .accreditations .section-head h2 { color: #fff; }
+
+    .accreditations .section-head p {
+      color: rgba(255, 255, 255, 0.62);
+    }
+
+    .acc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .acc-card {
       display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem 4rem;
-      align-items: center;
-      padding-top: 0.5rem;
+      flex-direction: column;
+      gap: 1.35rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-top: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: clamp(1.5rem, 3vw, 2rem);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.25s var(--ease), border-color 0.25s, transform 0.25s var(--ease);
+      min-height: 100%;
     }
 
-    .acc-item {
+    a.acc-card:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(154, 91, 60, 0.55);
+      transform: translateY(-3px);
+    }
+
+    .acc-card-logo {
+      width: 88px;
+      height: 88px;
       display: flex;
       align-items: center;
-      gap: 1.15rem;
-      transition: opacity 0.2s;
+      justify-content: center;
+      background: #fff;
+      border-radius: 10px;
+      padding: 0.65rem;
     }
 
-    a.acc-item:hover { opacity: 0.75; }
-
-    .acc-item img {
-      height: 64px;
+    .acc-card-logo img {
+      max-width: 100%;
+      max-height: 100%;
       width: auto;
+      height: auto;
       object-fit: contain;
     }
 
-    .acc-item span {
-      font-size: 0.95rem;
-      color: var(--muted);
-      max-width: 16rem;
-      line-height: 1.4;
+    .acc-card-body h3 {
+      font-family: "Syne", sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+      color: #fff;
     }
 
-    .acc-item strong {
-      display: block;
-      color: var(--ink);
+    .acc-card-body p {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.62);
+      margin: 0;
+    }
+
+    .acc-card-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 1.15rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      margin-bottom: 0.15rem;
+      color: var(--accent-soft);
+      letter-spacing: 0.01em;
+    }
+
+    a.acc-card:hover .acc-card-hint {
+      color: #fff;
     }
 
     /* ── Footer ── */
@@ -1035,10 +1083,8 @@
         width: auto;
       }
 
-      .acc-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.75rem;
+      .acc-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1390,14 +1436,26 @@
           <p>Fellowship with leading surgical colleges and specialist societies.</p>
         </div>
 
-        <div class="acc-row reveal">
-          <a class="acc-item" href="https://www.surgeons.org/Profile/thomas-hendriks" target="_blank" rel="noopener noreferrer" aria-label="View Dr Thomas Hendriks on RACS Find a Surgeon">
-            <img src="assets/logo-racs.jpg" alt="Royal Australasian College of Surgeons" width="80" height="80">
-            <span><strong>FRACS</strong>Royal Australasian College of Surgeons</span>
+        <div class="acc-grid reveal">
+          <a class="acc-card" href="https://www.surgeons.org/Profile/thomas-hendriks" target="_blank" rel="noopener noreferrer" aria-label="View Dr Thomas Hendriks on RACS Find a Surgeon">
+            <div class="acc-card-logo">
+              <img src="assets/logo-racs.jpg" alt="Royal Australasian College of Surgeons" width="80" height="80">
+            </div>
+            <div class="acc-card-body">
+              <h3>FRACS</h3>
+              <p>Fellow of the Royal Australasian College of Surgeons. Verified specialist listing on Find a Surgeon.</p>
+              <span class="acc-card-hint">View RACS profile &rarr;</span>
+            </div>
           </a>
-          <div class="acc-item">
-            <img src="assets/logo-ahns.jpg" alt="American Head and Neck Society" width="80" height="80">
-            <span><strong>AHNS</strong>American Head &amp; Neck Society fellowship training</span>
+
+          <div class="acc-card">
+            <div class="acc-card-logo">
+              <img src="assets/logo-ahns.jpg" alt="American Head and Neck Society" width="80" height="80">
+            </div>
+            <div class="acc-card-body">
+              <h3>AHNS</h3>
+              <p>American Head &amp; Neck Society fellowship training through the Sarah Cannon Head &amp; Neck program.</p>
+            </div>
           </div>
         </div>
       </div>
