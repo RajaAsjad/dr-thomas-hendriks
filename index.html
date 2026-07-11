@@ -570,71 +570,231 @@
       line-height: 1.45;
     }
 
-    /* ── Referrers ── */
+    /* ── Referrers + contact form ── */
     .referrers {
       background: var(--ground);
     }
 
-    .ref-layout {
+    .ref-intro {
       display: grid;
-      grid-template-columns: 1.2fr 0.9fr;
-      gap: clamp(2rem, 4vw, 3.5rem);
+      grid-template-columns: 1.35fr 1fr;
+      gap: clamp(1.75rem, 4vw, 3rem);
       align-items: start;
+      margin-bottom: clamp(2rem, 4vw, 2.75rem);
+      padding-bottom: clamp(1.75rem, 3vw, 2.25rem);
+      border-bottom: 1px solid var(--rule);
     }
 
-    .ref-copy p {
+    .ref-intro p {
       color: var(--muted);
-      margin-bottom: 1.1rem;
+      margin-bottom: 1rem;
       font-size: 1.02rem;
     }
 
-    .ref-copy .ref-note {
-      font-size: 0.9rem;
-      font-style: italic;
-      color: #8A949E;
-      margin-bottom: 0;
+    .ref-intro p:last-child { margin-bottom: 0; }
+
+    .ref-priority {
+      border-left: 3px solid var(--accent);
+      padding: 0.15rem 0 0.15rem 1.1rem;
     }
 
-    .ref-contact {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      padding: 1.75rem 1.65rem;
-    }
-
-    .ref-contact h3 {
+    .ref-priority strong {
+      display: block;
       font-family: "Fraunces", serif;
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      margin-bottom: 1.35rem;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
       letter-spacing: -0.015em;
     }
 
-    .ref-row {
-      display: grid;
-      grid-template-columns: 5.5rem 1fr;
-      gap: 0.75rem;
-      padding: 0.85rem 0;
-      border-top: 1px solid var(--rule);
+    .ref-priority p {
       font-size: 0.95rem;
+      margin: 0;
     }
 
-    .ref-row:first-of-type { border-top: none; padding-top: 0; }
+    .ref-rooms {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.25rem 1.5rem;
+      margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+    }
 
-    .ref-row dt {
+    .ref-room-item {
+      min-width: 0;
+    }
+
+    .ref-room-item span {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .ref-room-item p,
+    .ref-room-item a {
+      font-size: 0.95rem;
+      color: var(--ink);
+      line-height: 1.45;
+    }
+
+    .ref-room-item .pending {
+      font-style: italic;
+      color: #8A949E;
+    }
+
+    .ref-form-panel {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+    }
+
+    .ref-form-panel h3 {
+      font-family: "Fraunces", serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.45rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+    }
+
+    .ref-form-lead {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .ref-form {
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .ref-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      min-width: 0;
+    }
+
+    .field-full { grid-column: 1 / -1; }
+
+    .field label {
+      font-size: 0.85rem;
       font-weight: 600;
       color: var(--ink);
-      font-size: 0.85rem;
     }
 
-    .ref-row dd {
-      color: var(--muted);
+    .field label .req {
+      color: var(--accent);
+      margin-left: 0.15rem;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      font: inherit;
+      font-size: 0.95rem;
+      color: var(--ink);
+      background: var(--ground);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 0.8rem 0.95rem;
+      min-height: 48px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .field textarea {
+      min-height: 140px;
+      resize: vertical;
       line-height: 1.5;
     }
 
-    .ref-row .pending {
-      font-style: italic;
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: #fff;
+    }
+
+    .field input.is-invalid,
+    .field select.is-invalid,
+    .field textarea.is-invalid {
+      border-color: #B42318;
+    }
+
+    .field-error {
+      display: none;
+      font-size: 0.8rem;
+      color: #B42318;
+    }
+
+    .field-error.is-visible { display: block; }
+
+    .field-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .field-check input {
+      width: 18px;
+      height: 18px;
+      margin-top: 0.15rem;
+      accent-color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .ref-form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem 1.5rem;
+      padding-top: 0.35rem;
+    }
+
+    .ref-form-actions .btn {
+      min-width: 180px;
+    }
+
+    .ref-form-hint {
+      font-size: 0.85rem;
       color: #8A949E;
+    }
+
+    .ref-form-status {
+      display: none;
+      padding: 1rem 1.15rem;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .ref-form-status.is-visible { display: block; }
+
+    .ref-form-status.is-success {
+      background: rgba(14, 92, 102, 0.08);
+      border: 1px solid rgba(14, 92, 102, 0.25);
+      color: var(--accent-hover);
+    }
+
+    .ref-form-status.is-error {
+      background: #FDF2F1;
+      border: 1px solid #F0C4C0;
+      color: #B42318;
     }
 
     /* ── Accreditations ── */
@@ -737,8 +897,12 @@
     /* ── Responsive ── */
     @media (max-width: 980px) {
       .about-layout,
-      .ref-layout {
+      .ref-intro {
         grid-template-columns: 1fr;
+      }
+
+      .ref-rooms {
+        grid-template-columns: 1fr 1fr;
       }
 
       .about-meta {
@@ -831,9 +995,20 @@
       }
 
       .qual-list li,
-      .milestone,
-      .ref-row {
+      .milestone {
         grid-template-columns: 4.75rem 1fr;
+      }
+
+      .ref-rooms {
+        grid-template-columns: 1fr;
+      }
+
+      .ref-form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ref-form-actions .btn {
+        width: 100%;
       }
 
       .hero-actions {
@@ -1104,34 +1279,95 @@
           <p>GP and specialist referrals welcome across the full scope of ENT surgery.</p>
         </div>
 
-        <div class="ref-layout">
-          <div class="ref-copy reveal">
+        <div class="ref-intro reveal">
+          <div>
             <p>Dr Hendriks accepts referrals from general practitioners and specialist colleagues across Perth and regional Western Australia, across the full scope of ENT surgery, from paediatric otolaryngology and sinus surgery through to complex head and neck cancer and reconstructive surgery.</p>
-            <p>Urgent and semi-urgent oncology referrals are prioritised. For clinical queries prior to referral, please contact the rooms directly.</p>
-            <p class="ref-note">A downloadable referral guide will be available here once published.</p>
+            <p>For clinical queries prior to referral, please contact the rooms or use the form below.</p>
           </div>
+          <div class="ref-priority">
+            <strong>Urgent referrals prioritised</strong>
+            <p>Urgent and semi-urgent oncology referrals are prioritised. Please mark urgency clearly when submitting.</p>
+          </div>
+        </div>
 
-          <div class="ref-contact reveal" id="contact">
-            <h3>Contact rooms</h3>
-            <dl>
-              <div class="ref-row">
-                <dt>Address</dt>
-                <dd>Suite 34, Level 1<br>85 Monash Avenue<br>Nedlands WA 6009</dd>
-              </div>
-              <div class="ref-row">
-                <dt>Phone</dt>
-                <dd class="pending">To be confirmed</dd>
-              </div>
-              <div class="ref-row">
-                <dt>Email</dt>
-                <dd class="pending">To be confirmed</dd>
-              </div>
-              <div class="ref-row">
-                <dt>Website</dt>
-                <dd>drthomashendriks.com.au</dd>
-              </div>
-            </dl>
+        <div class="ref-rooms reveal" id="contact">
+          <div class="ref-room-item">
+            <span>Address</span>
+            <p>Suite 34, Level 1<br>85 Monash Avenue<br>Nedlands WA 6009</p>
           </div>
+          <div class="ref-room-item">
+            <span>Phone</span>
+            <p class="pending">To be confirmed</p>
+          </div>
+          <div class="ref-room-item">
+            <span>Email</span>
+            <p class="pending">To be confirmed</p>
+          </div>
+          <div class="ref-room-item">
+            <span>Website</span>
+            <p>drthomashendriks.com.au</p>
+          </div>
+        </div>
+
+        <div class="ref-form-panel reveal">
+          <h3>Referral enquiry</h3>
+          <p class="ref-form-lead">Send a referral enquiry to the rooms. Fields marked with an asterisk are required.</p>
+
+          <div class="ref-form-status" id="ref-form-status" role="status" aria-live="polite"></div>
+
+          <form class="ref-form" id="referral-form" novalidate>
+            <div class="ref-form-grid">
+              <div class="field">
+                <label for="ref-name">Your name <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="ref-name" name="name" autocomplete="name" required>
+                <span class="field-error" data-for="ref-name">Please enter your name.</span>
+              </div>
+              <div class="field">
+                <label for="ref-practice">Practice / clinic</label>
+                <input type="text" id="ref-practice" name="practice" autocomplete="organization">
+              </div>
+              <div class="field">
+                <label for="ref-email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="ref-email" name="email" autocomplete="email" required>
+                <span class="field-error" data-for="ref-email">Please enter a valid email address.</span>
+              </div>
+              <div class="field">
+                <label for="ref-phone">Phone <span class="req" aria-hidden="true">*</span></label>
+                <input type="tel" id="ref-phone" name="phone" autocomplete="tel" required>
+                <span class="field-error" data-for="ref-phone">Please enter a contact phone number.</span>
+              </div>
+              <div class="field">
+                <label for="ref-urgency">Urgency <span class="req" aria-hidden="true">*</span></label>
+                <select id="ref-urgency" name="urgency" required>
+                  <option value="">Select urgency</option>
+                  <option value="Routine">Routine</option>
+                  <option value="Semi-urgent">Semi-urgent</option>
+                  <option value="Urgent">Urgent</option>
+                </select>
+                <span class="field-error" data-for="ref-urgency">Please select an urgency level.</span>
+              </div>
+              <div class="field">
+                <label for="ref-patient">Patient reference</label>
+                <input type="text" id="ref-patient" name="patient_ref" placeholder="Initials or your reference only">
+              </div>
+              <div class="field field-full">
+                <label for="ref-message">Clinical details / enquiry <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="ref-message" name="message" required placeholder="Brief clinical summary, reason for referral, and any relevant investigations."></textarea>
+                <span class="field-error" data-for="ref-message">Please include clinical details or your enquiry.</span>
+              </div>
+            </div>
+
+            <label class="field-check">
+              <input type="checkbox" id="ref-consent" name="consent" required>
+              <span>I confirm this enquiry is from a referring clinician or authorised practice staff, and that any patient details shared are limited to what is needed for triage.</span>
+            </label>
+            <span class="field-error" data-for="ref-consent">Please confirm before sending.</span>
+
+            <div class="ref-form-actions">
+              <button type="submit" class="btn btn-primary" id="ref-submit">Send enquiry</button>
+              <p class="ref-form-hint">Rooms will respond once contact details are confirmed on this site.</p>
+            </div>
+          </form>
         </div>
       </div>
     </section>
@@ -1252,6 +1488,133 @@
         }, { rootMargin: "-40% 0px -50% 0px", threshold: 0 });
 
         sections.forEach(function (s) { activeIo.observe(s); });
+      }
+
+      /* Referral form */
+      var form = document.getElementById("referral-form");
+      var statusEl = document.getElementById("ref-form-status");
+      var submitBtn = document.getElementById("ref-submit");
+      /* When rooms email is confirmed, set it here to enable FormSubmit delivery */
+      var ROOMS_EMAIL = "";
+
+      function showStatus(type, message) {
+        statusEl.className = "ref-form-status is-visible is-" + type;
+        statusEl.textContent = message;
+      }
+
+      function clearFieldErrors() {
+        form.querySelectorAll(".is-invalid").forEach(function (el) {
+          el.classList.remove("is-invalid");
+        });
+        form.querySelectorAll(".field-error.is-visible").forEach(function (el) {
+          el.classList.remove("is-visible");
+        });
+      }
+
+      function markError(id) {
+        var input = document.getElementById(id);
+        var err = form.querySelector('.field-error[data-for="' + id + '"]');
+        if (input) input.classList.add("is-invalid");
+        if (err) err.classList.add("is-visible");
+      }
+
+      function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+
+      function buildMailtoBody(data) {
+        return [
+          "Referral enquiry via drthomashendriks.com.au",
+          "",
+          "Referrer: " + data.name,
+          "Practice: " + (data.practice || "Not provided"),
+          "Email: " + data.email,
+          "Phone: " + data.phone,
+          "Urgency: " + data.urgency,
+          "Patient reference: " + (data.patient_ref || "Not provided"),
+          "",
+          "Clinical details:",
+          data.message
+        ].join("\n");
+      }
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          clearFieldErrors();
+          statusEl.className = "ref-form-status";
+          statusEl.textContent = "";
+
+          var name = document.getElementById("ref-name").value.trim();
+          var practice = document.getElementById("ref-practice").value.trim();
+          var email = document.getElementById("ref-email").value.trim();
+          var phone = document.getElementById("ref-phone").value.trim();
+          var urgency = document.getElementById("ref-urgency").value;
+          var patientRef = document.getElementById("ref-patient").value.trim();
+          var message = document.getElementById("ref-message").value.trim();
+          var consent = document.getElementById("ref-consent").checked;
+          var valid = true;
+
+          if (!name) { markError("ref-name"); valid = false; }
+          if (!email || !isValidEmail(email)) { markError("ref-email"); valid = false; }
+          if (!phone) { markError("ref-phone"); valid = false; }
+          if (!urgency) { markError("ref-urgency"); valid = false; }
+          if (!message) { markError("ref-message"); valid = false; }
+          if (!consent) { markError("ref-consent"); valid = false; }
+
+          if (!valid) {
+            showStatus("error", "Please complete the required fields highlighted below.");
+            return;
+          }
+
+          var payload = {
+            name: name,
+            practice: practice,
+            email: email,
+            phone: phone,
+            urgency: urgency,
+            patient_ref: patientRef,
+            message: message
+          };
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Sending…";
+
+          if (ROOMS_EMAIL) {
+            var body = new FormData();
+            Object.keys(payload).forEach(function (key) { body.append(key, payload[key]); });
+            body.append("_subject", "Referral enquiry: " + urgency);
+            body.append("_template", "table");
+            body.append("_captcha", "false");
+
+            fetch("https://formsubmit.co/ajax/" + encodeURIComponent(ROOMS_EMAIL), {
+              method: "POST",
+              body: body,
+              headers: { Accept: "application/json" }
+            })
+              .then(function (res) {
+                if (!res.ok) throw new Error("send failed");
+                form.reset();
+                showStatus("success", "Thank you. Your enquiry has been sent to the rooms.");
+              })
+              .catch(function () {
+                showStatus("error", "Something went wrong sending the form. Please try again or contact the rooms directly.");
+              })
+              .finally(function () {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Send enquiry";
+              });
+            return;
+          }
+
+          var mailto = "mailto:?subject=" + encodeURIComponent("Referral enquiry: " + urgency) +
+            "&body=" + encodeURIComponent(buildMailtoBody(payload));
+          window.location.href = mailto;
+          form.reset();
+          showStatus("success", "Your email app should open with the enquiry ready to send. Once the rooms email is published on this site, submissions will go there automatically.");
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Send enquiry";
+        });
       }
     })();
   </script>
